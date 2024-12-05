@@ -1,0 +1,83 @@
+// Секция navigation
+
+.row--navigation {
+    @include absCenter;
+    width: 60%;
+    height: 60%;
+    /* Размер сетки из-за clip-path до 900px */
+
+    & .col-1-of-3 {
+        width: calc((100% - 2 * #{$grid-horizontal-margin}) * 1/3);
+        /* Задал ширину, а не минимальную ширину.  */
+        height: calc(97vh * 0.6);
+        /* 97vh - высота всей секции, минус 40% ушедшие на clip-path */
+        // background-color: rgb(133, 235, 167);
+        /* debug */
+    }
+
+    @include respond(900) {
+        top: 55%;
+        width: 30%;
+        height: calc(97vh * 0.7);
+        /* Размер сетки из-за clip-path после 900px */
+
+        & .col-1-of-3 {
+            width: 100%;
+            height: calc((100% - (var(--grid-vertical-margin) * 2)) / 3);
+        }
+
+        [class^="col-"] {
+            &:not(:last-child) {
+                margin-bottom: var(--grid-vertical-margin);
+            }
+        }
+    }
+}
+
+// Функционал для секции navigation
+
+.row--navigation {
+    pointer-events: none;
+}
+
+/* row активен для наведения мыши */
+
+.row--navigation > .col-1-of-3 {
+    pointer-events: none;
+}
+
+/* row и col не активны для наведения мыши */
+
+.row--navigation > .col-1-of-3 > * {
+    pointer-events: auto;
+}
+
+/* все остальное в row и col активно для наведения мыши */
+
+.row--navigation:hover .col-1-of-3:not(:hover) {
+    animation: blur ease-in .6s forwards;
+}
+
+/* Когда что-то в row и col поддается :hover на col активируется эффект blur */
+
+
+// Секция navigation respond
+
+.row--navigation {
+    @include respond(1400) {
+        --grid-horizontal-margin: 60px;
+    }
+}
+
+.row--navigation {
+    @include respond(1200) {
+        --grid-horizontal-margin: 40px;
+    }
+}
+
+.row--navigation {
+    @include respond(1000) {
+        --grid-horizontal-margin: 30px;
+    }
+}
+

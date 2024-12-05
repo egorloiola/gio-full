@@ -1,0 +1,105 @@
+// row
+.row--footer {
+    @include relCenter;
+
+    width: 60%;
+    height: var(--clip-path-footer-x2);
+
+    overflow: hidden;
+
+    & {
+        top: calc(var(--clip-path-footer-x2) / 2)
+    }
+
+    [class^="col-"] {
+        &:not(:last-child) {
+            margin-right: 0;
+        }
+    }
+
+    & .col-1-of-2 {
+        height: var(--clip-path-footer-x2);
+
+        &:nth-child(1) {
+            min-width: calc(var(--clip-path-footer-x2));
+        }
+
+        &:nth-child(2) {
+            min-width: calc(100% - var(--clip-path-footer-x2));
+            width: calc(100% - var(--clip-path-footer-x2));
+        }
+    }
+
+    @include respond(900) {
+        width: 100%;
+
+        & .col-1-of-2 {
+            height: calc(var(--clip-path-footer-x2) / 2);
+
+            &:nth-child(1) {
+
+                @include relCenter;
+
+                width: 40%;
+                min-width: auto;
+
+                & {
+                    top: calc(var(--clip-path-footer-x2) / 4);
+                }
+            }
+
+            &:nth-child(2) {
+                min-width: 100%;
+            }
+        }
+    }
+
+    @include respond(600) {
+        & .col-1-of-2 {
+            &:nth-child(1) {
+                width: 30%;
+                min-width: calc(var(--clip-path-footer-x2) / 2);
+            }
+        }
+    }
+
+    @include respond(340) {
+        height: calc(var(--h-footer) - (10vh * var(--size-section)));
+
+        & {
+            top: calc(((var(--h-footer) - (10vh * var(--size-section))) / 2) + (10 * #{$size-footer-clip} * 1%));
+        }
+
+        & .col-1-of-2 {
+
+            &:nth-child(1) {
+                left: calc(var(--clip-path-footer-x2) / 4);
+                display: none; // убирает куб
+            }
+
+            &:nth-child(2) {
+                min-width: auto;
+                // width: calc(100% - (var(--clip-path-footer-x2) / 2));
+                width: 100%;
+                height: calc(var(--h-footer) - (10vh * var(--size-section)));
+            }
+        }
+    }
+}
+
+
+// debug footer
+
+// .row--footer {
+//     & .col-1-of-2 {
+//         &:nth-child(1) {
+//             outline: 1px solid rgb(237, 20, 20);
+//             outline-offset: -1px;
+//         }
+
+//         &:nth-child(2) {
+//             outline: 1px solid rgb(237, 20, 20);
+//             outline-offset: -1px;
+//         }
+//     }
+// }

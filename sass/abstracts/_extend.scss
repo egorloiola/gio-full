@@ -1,0 +1,22 @@
+%position-0a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+%position-0r {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+%center-both {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}

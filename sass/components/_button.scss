@@ -1,0 +1,217 @@
+/* Основа */
+.btn {
+    position: relative;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 600;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+
+    &:active {
+        @include activefilterB;
+    }
+}
+
+@media (min-width: 600px) {
+    .btn {
+        font-size: 20px;
+        width: calc(70px + 12vw);
+        height: 50px;
+        opacity: 0; // opacity(0) нужно из-за анимации
+        overflow: hidden; // нужно для заливки
+        margin-top: 2.3rem; // растояние от текста сверху
+
+        & span {
+            display: block;
+            position: relative;
+            line-height: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        & > span:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            width: 20px;
+            height: 0;
+            border: 1px solid white;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        & > span:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 20px;
+            height: 0;
+            border: 1px solid white;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        & > span > span:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0.2%; // fix
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        & > span > span:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0.2%; // fix
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+    }
+
+    /* Анимация */
+    .btn {
+        animation: clean 1s 5s forwards; // -- анимация
+        & > span:after {
+            animation: border-mid-w .5s forwards 5s, border-mid-h .5s forwards 5.5s; // правая верхняя border анимация
+        }
+        & > span:before {
+            animation: border-mid-w .5s forwards 5s, border-mid-h .5s forwards 5.5s; // левая верхняя border анимация
+        }
+        & > span > span:before {
+            animation: border-bot .5s forwards 6s; // правая нижняя border анимация
+        }
+        & > span > span:after {
+            animation: border-bot .5s forwards 6s; // левая нижняя border анимация
+        }
+    }
+
+    /* Анимация debug */
+    // .btn {
+    //     animation: clean .1s forwards; // -- анимация
+
+    //     & > span:after {
+    //         animation: border-mid-w .5s forwards, border-mid-h .5s forwards; // правая верхняя border анимация
+    //     }
+
+    //     & > span:before {
+    //         animation: border-mid-w .5s forwards, border-mid-h .5s forwards; // левая верхняя border анимация
+    //     }
+
+    //     & > span > span:before {
+    //         animation: border-bot .5s forwards; // правая нижняя border анимация
+    //     }
+
+    //     & > span > span:after {
+    //         animation: border-bot .5s forwards; // левая нижняя border анимация
+    //     }
+    // }
+
+    /* Заливка */
+    .btn {
+
+        &:after,
+        &:before {
+            background: rgba($color-white, .05);
+            content: ' ';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transform: skewX(-45deg);
+            -webkit-transform: skewX(-45deg);
+            width: 0%;
+            z-index: -1;
+            -webkit-transition: all .35s ease-in-out;
+            transition: all .35s ease-in-out;
+        }
+
+        &:after {
+            bottom: 0;
+            right: -20%;
+        }
+
+        &:before {
+            top: 0;
+            left: -20%;
+        }
+
+        &:hover:after {
+            width: 150%;
+        }
+
+        &:hover:before {
+            width: 150%;
+        }
+    }
+}
+
+/* Кнопка после 600px */
+@media screen and (min-width:0px) and (max-width:600px) {
+    .btn {
+        font-size: $btn-600-font-size;
+        margin-top: 3.5rem;
+        width: calc(#{$btn-600-font-size} * 3);
+        height: calc(#{$btn-600-font-size} * 3);
+        line-height: calc(#{$btn-600-font-size} * 3);
+        text-align: center;
+    }
+
+    /* функционал */
+    .btn-600::before,
+    .btn-600::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        @include beamfilter;
+    }
+
+    .btn-600::before {
+        animation: rotateccw 6s infinite linear;
+    }
+
+    .btn-600:hover::before {
+        animation: rotatecw 3s infinite linear;
+    }
+
+    .btn-600::after {
+        animation: rotatecw 8s infinite linear;
+    }
+
+    .btn-600:hover::after {
+        animation: rotateccw 4s infinite linear;
+    }
+
+    .btn-600::after,
+    .btn-600::before {
+        transition-duration: .5s; // время заливки
+    }
+
+    .btn-600:hover::before, .btn-600:hover::after {
+        background: rgba($color-white, .05); // заливка
+    }
+
+    .btn-600:active::after,
+    .btn-600:active::before {
+        @include activefilterA;
+    }
+
+    /* Анимация  */
+    .btn-600 {
+        animation: MoveBot 5s ease-out, clean 5s ease-in;
+    }
+}

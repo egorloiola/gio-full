@@ -1,0 +1,179 @@
+.cube {
+    display: flex;
+    transform: translateZ(calc(var(--cube-side) * 8));
+    margin: 0;
+    transform-style: preserve-3d;
+    position: relative;
+    width: calc(var(--cube-side)*8);
+    height: calc(var(--cube-side)*8);
+    pointer-events: none; // мое
+
+    a {
+        transform-style: preserve-3d;
+        transform-origin: calc(var(--cube-side) * 4) calc(var(--cube-side) * 4) calc(var(--cube-side) * -4);
+        display: block;
+        position: absolute;
+        z-index: 1;
+        transform: translateZ(calc(var(--cube-side) * 2));
+        width: 100%;
+        height: 100%;
+        pointer-events: auto;
+
+        &:nth-child(1) {
+            top: 0;
+            left: 0;
+            height: 50%;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+
+            &:hover {
+                ~ .cube-side {
+                    transform: rotateX(-0.5turn);
+
+                    div:nth-child(6) {
+                        transform: rotateY(180deg) rotateZ(180deg) translateZ(calc(var(--cube-side) * 8));
+                    }
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            top: 0;
+            right: 0;
+            width: 50%;
+            clip-path: polygon(100% 100%, 0 50%, 100% 0);
+
+            &:hover {
+                ~ .cube-side {
+                    transform: rotateY(-0.5turn);
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+            right: 0;
+            height: 50%;
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+
+            &:hover {
+                ~ .cube-side {
+                    transform: rotateX(0.5turn);
+
+                    div:nth-child(6) {
+                        transform: rotateY(180deg) rotateZ(180deg) translateZ(calc(var(--cube-side) * 8));
+                    }
+                }
+            }
+        }
+
+        &:nth-child(4) {
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            clip-path: polygon(0 100%, 0 0, 100% 50%);
+
+            &:hover {
+                ~ .cube-side {
+                    transform: rotateY(0.5turn);
+                }
+            }
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+
+            &:hover {
+                z-index: 2;
+                transform: translateZ(calc(var(--cube-side) * 8));
+                width: 100% !important;
+                height: 100% !important;
+                -webkit-clip-path: none !important;
+                clip-path: none !important;
+                transition: all 100ms ease 500ms;
+            }
+        }
+    }
+
+    .cube-side {
+        transform-style: preserve-3d;
+        transform-origin: calc(var(--cube-side) * 4) calc(var(--cube-side) * 4) calc(var(--cube-side) * -4);
+        position: relative;
+        z-index: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: all 300ms ease-out;
+        pointer-events: none; // мое
+
+        div {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            pointer-events: none; // мое
+            backface-visibility: hidden; // мое
+
+            &:nth-child(1) {
+                transform-origin: center top;
+                transform: rotateX(90deg) translateY(calc(var(--cube-side) * -8));
+                background: lighten($color-cube, 35%);
+            }
+
+            &:nth-child(2) {
+                transform-origin: center bottom;
+                transform: rotateX(-90deg) translateY(calc(var(--cube-side) * 8));
+                background: lighten($color-cube, 20%);
+            }
+
+            &:nth-child(3) {
+                transform-origin: left center;
+                transform: rotateY(-90deg) translateX(calc(var(--cube-side) * -8));
+                background: lighten($color-cube, 20%);
+            }
+
+            &:nth-child(4) {
+                transform-origin: right center;
+                transform: rotateY(90deg) translateX(calc(var(--cube-side) * 8));
+                background: lighten($color-cube, 20%);
+            }
+
+            &:nth-child(5) {
+                transform-origin: center center;
+                transform: rotateX(0);
+                background: $color-cube;
+            }
+
+            &:nth-child(6) {
+                transform-origin: center center;
+                transform: rotateY(180deg) translateZ(calc(var(--cube-side) * 8));
+                background: white;
+                color: lighten($color-royal-blue, 15%); // цвет текста на обратной стороне.
+            }
+        }
+    }
+}
+
+// cube perspective 
+.cube-perspective {
+    @include absCenter;
+
+    width: calc(var(--cube-side)*16);
+    height: calc(var(--cube-side)*16);
+    perspective-origin: 90% 10%;
+    perspective: 900px;
+    pointer-events: none;
+}
+
+// cube perspective 
+.cube-typography {
+    font-size: calc(var(--cube-side) * 0.75);
+    font-weight: 500;
+}

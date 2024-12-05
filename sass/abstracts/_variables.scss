@@ -1,0 +1,116 @@
+// COLOR
+$color-white: #ffffff;
+$color-gray: #495057;
+$color-orange-light: #ffa94d;
+$color-orange-dark: #fd7e14;
+$color-gold-light: #ffe066;
+$color-gold-dark: #fcc419;
+$color-dotn-yellow: #fff200;
+$color-cyan-light: #99e9f2;
+$color-cyan-dark: #3bc9db;
+$color-violet-light: #b197fc;
+$color-violet-dark: #845ef7;
+$color-blue-light: #74c0fc;
+$color-blue-dark: #339af0;
+$color-royal-blue: #4169E1;
+
+
+// CARD COLOR 
+$color-card-active: #bef264;
+$color-card-shadow: #fefce8;
+/* $color-card-shadow: Цвет тени при наведении (:hover) */
+
+// BEAM 
+$color-beam--1: rgba(255, 255, 255, 0.1);
+$color-beam--2: rgba(255, 255, 255, 0.15);
+
+// GRID MAIN
+$grid-max-width: 100%;
+$grid-max-height: 100%; // появилась, при работе с footer
+
+/* Задал сетку 100%, а уже потом margin модификации row--navigation подстраиваю исходя из области.  */
+// CSS GRID
+.row--navigation {
+    --grid-horizontal-margin: 80px;
+    --grid-vertical-margin: 10px;
+}
+
+.row--footer {
+    --grid-horizontal-margin: 80px;
+}
+
+/* Данная запись через переменные CSS позволяет их делать более гибкими для изменения самой переменной для respond. */
+
+// GRID HORIZONTAL
+$grid-horizontal-margin: var(--grid-horizontal-margin);
+/* Расстояние между колонками, карточками, элементами сетки.  */
+
+// GRID VERTICAl
+$grid-vertical-margin: var(--grid-vertical-margin);
+/* Расстояние между строками, карточками, элементами сетки.  */
+
+// CSS GRID HORIZONTAL
+.row--navigation {
+    --card-size: calc(80px + 5vw);
+}
+
+// CSS GRID VERTICAl
+.row--navigation {
+    @include respond(900) {
+        --card-size: calc(70px + 7vw);
+    }
+}
+
+// CARD + CARD ANIMATION
+$path-width: 1.5px;
+/* Толщина линии анимации */
+$card-size: var(--card-size);
+/* Размер карточки исходит из $grid-col-navigation + место для анимации */
+$logo-size: calc(#{$card-size} * 0.7);
+/* Размер логотипа, исходя из размера карточки. */
+$clip-size: calc(#{$card-size} * 1.1);
+/* $card-size увеличенный на 10% */
+$clip-size-minus-path-width: calc(#{$clip-size} - #{$path-width});
+/* $card-size увеличенный на 10% минус толщина тени($path-width). */
+$clip-animation-time: 12s;
+/* Время анимации */
+
+// BEAM
+$beam-radius: calc(#{$clip-size} * 1.5);
+
+// CSS BUTTON
+.btn {
+    --pxfix: calc(1vw);
+}
+
+// BUTTON
+$border-size: 1px;
+$btn-600-font-size: calc(16px + (24 - 16) / (600 - 310) * (100vw - 310 * 1px));
+/* $btn-600-font-size за основу взято желание видет при ширине экрана в 310px = 16px, а при 600px = 24px. формулой линейной интерполяции. При 100vw = 310px формула обретает вид 16 + ~ * 0 = 16. */
+
+// TYPOGRAPHY
+$size-header-text: calc(25px + 2.5vw); // размер текста в заголовках
+$size-header-ls: calc(2px + 1.5vw); // letter-spacing в заголовках
+
+// TYPOGRAPHY FOOTER
+
+
+// SIZE SECTION
+$size-section: 0.965; // Размер всех секций. Подогнал убрав лишние с изображения в первой секции.
+
+// FOOTER
+$size-footer-clip: 2.5; // уменьшает кратно размер-высоту всего footer. 2.5 исходя из clip-path footer на 40% 1/0.4 = 2.5
+
+// SISE MARGIN SECTION
+:root {
+    --size-gap-section: 1.5vh; // для удобства можно было сделать просто переменную scss
+}
+
+$size-gap-section: var(--size-gap-section);
+
+// CUBE
+$color-cube:darken(#8FA8FF, 20%); // спорно, но это цвет свечения.
+
+
+// row-footer-height
+$clip-path-corner-footer: var(--clip-path-footer-x2);

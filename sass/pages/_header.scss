@@ -1,0 +1,44 @@
+.header {
+    height: calc(100vh *  #{$size-section});
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+    background-image: linear-gradient(to right top,
+            rgba($color-gold-light, .3), rgba($color-blue-dark, .3)),
+        url(../img/pages/sample/header-1800.webp);
+    background-position: 30% 0%;
+    background-size: cover;
+    overflow: hidden;
+
+    &__text-box {
+        @include absCenter;
+
+        & {
+            top: 30%;
+            text-align: center;
+
+            @include respond (900) {
+                top: calc(30% - 2rem);
+            }
+        }
+    }
+
+    @media screen and (min-resolution:192dpi) and (min-width:600px),
+    screen and (min-width:2000px) {
+        background-image: linear-gradient(to right top,
+                rgba($color-violet-light, .3), rgba($color-violet-dark, .3)),
+            url(../img/pages/sample/header-3600.webp);
+    }
+
+    @include respond(900) {
+        background-position: 23.5% 0%;
+        clip-path: polygon(100% 80%, 70% 100%, 30% 100%, 0% 80%, 0% 0%, 100% 0%);
+    }
+
+    @include respond(600) {
+        background-position: 16.5% 0%;
+        clip-path: polygon(100% 80%, 65% 100%, 35% 100%, 0% 80%, 0% 0%, 100% 0%);
+    }
+
+    @include respond(340) {
+        clip-path: polygon(100% 80%, 50% 100%, 0% 80%, 0% 0%, 100% 0%);
+    }
+}

@@ -1,0 +1,100 @@
+@mixin absCenter {
+    & {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin relCenter {
+    & {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin ClearFix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin activefilterA {
+    & {
+        filter: drop-shadow(0px 0px 3px rgba($color-card-active, 1));
+    }
+}
+
+@mixin activefilterB {
+    & {
+        filter: drop-shadow(0px 0px 3px rgba($color-card-active, 0.5));
+    }
+}
+
+@mixin beamfilter {
+    & {
+        filter: drop-shadow(0px 0px 3px rgba($color-card-shadow, .5));
+    }
+}
+
+// media queries ! важно помнить что 1800 уже min-width
+@mixin respond($dot) {
+    @if $dot==340 {
+        @media only screen and (max-width:340px) {
+            @content;
+        }
+    }
+
+    @if $dot==600 {
+        @media only screen and (max-width:600px) {
+            @content;
+        }
+    }
+
+    @if $dot==900 {
+        @media only screen and (max-width:900px) {
+            @content;
+        }
+    }
+
+    @if $dot==1000 {
+        @media only screen and (max-width:1000px) {
+            @content;
+        }
+    }
+
+    @if $dot==1200 {
+        @media only screen and (max-width:1200px) {
+            @content;
+        }
+    }
+
+    @if $dot==1400 {
+        @media only screen and (max-width:1400px) {
+            @content;
+        }
+    }
+
+    @if $dot==1600 {
+        @media only screen and (max-width:1600px) {
+            @content;
+        }
+    }
+
+    @if $dot==max-1800 {
+        @media only screen and (max-width:1800px) {
+            @content;
+        }
+    }
+
+    @if $dot==min-1800 {
+        @media only screen and (min-width:1800px) {
+            @content;
+        }
+    }
+}

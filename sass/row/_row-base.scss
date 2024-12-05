@@ -1,0 +1,27 @@
+// Стандартная сетка
+.row {
+    position: relative;
+    max-width: $grid-max-width;
+
+    [class^="col-"] {
+        float: left;
+        position: relative;
+        /*  Добавил также relative всем col */
+
+        &:not(:last-child) {
+            margin-right: $grid-horizontal-margin;
+        }
+    }
+
+    &:last-child {
+        @include ClearFix;
+    }
+}
+
+// .col-1-of-2 {
+//     min-width: calc((100% - 1 * #{$grid-horizontal-margin}) * 1/2);
+// }
+
+// .col-1-of-3 {
+//     min-width: calc((100% - 2 * #{$grid-horizontal-margin}) * 1/3);
+// }

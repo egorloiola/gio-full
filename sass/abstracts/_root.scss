@@ -1,0 +1,48 @@
+// Пример использования.
+
+// :root {
+//     --color-test: #b197fc;
+// }
+
+// @media (max-width: 1600px) {
+//     :root {
+//         --color-test: #bef264;
+//     }
+// }
+
+// color: var(--color-test);
+
+// ---------------------------------------
+// Еще пример использования
+
+// :root {
+//     --grid-vertical-margin: 8rem;
+// }
+
+// .row--navigation {
+//     --grid-vertical-margin: 2rem;
+// }
+
+// /* Важно, чтобы так записать нужно указать переменную как таковую в :root */
+
+// Cube and footer size
+:root {
+    --size-footer-clip: #{$size-footer-clip}; //забираем занчени scss пепеменной
+    --size-section: #{$size-section}; //забираем занчени scss пепеменной
+    --h-footer: calc((100vh * var(--size-section)) / var(--size-footer-clip)); // выражаем высоту футера аналогично высоте footer в его свойстве height
+    /* переменная зависищая от размера изгиба футера. 
+    а она зависит по формулам от clip-path footer = calc(20 * #{$size-footer-clip} * 1%),
+    чтобы размер всегда соответсовал началу изгиба footer, 40 - значит в 2 раза больше */
+    --clip-path-footer-x2: calc((40 * var(--size-footer-clip)) * (var(--h-footer) * 0.01)); // Для использование в row(сетке)
+    --clip-path-footer-d8: calc(((40 * var(--size-footer-clip)) * (var(--h-footer) * 0.01) / 8)); // деление на 8 тут из-за спецификии написание самого cube
+    --sqrt3: sqrt(3); // нужно из-за специфики перменных в css
+    /*Учитываем вращение, взяв за диагональ --cube-side-clip-path-footer,
+    выражаем сторону, чтобы учесть размер вращения куба.*/
+    --cube-side: calc(var(--clip-path-footer-d8) / var(--sqrt3));
+}
+
+@include respond(900) {
+    :root {
+        --clip-path-footer-d8: calc(((40 * var(--size-footer-clip)) * (var(--h-footer) * 0.01) / 16)); // меняется сетка, менятеся и размер
+    }
+}

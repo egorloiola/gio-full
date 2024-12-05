@@ -1,0 +1,170 @@
+// typography
+@keyframes MoveRight {
+    0% {
+        transform: translateX(-10rem);
+    }
+
+    50% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes MoveLeft {
+    0% {
+        transform: translateX(10rem);
+    }
+
+    50% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes MoveBot {
+    0% {
+        transform: translateY(10rem);
+    }
+
+    50% {
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes clean {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// card 
+@keyframes clipMe {
+
+    0%,
+    100% {
+        clip: rect(0rem, $clip-size, $path-width, 0rem);
+    }
+
+    25% {
+        clip: rect(0rem, $path-width, $clip-size, 0rem);
+    }
+
+    50% {
+        clip: rect($clip-size-minus-path-width, $clip-size, $clip-size, 0rem);
+    }
+
+    75% {
+        clip: rect(0rem, $clip-size, $clip-size, $clip-size-minus-path-width);
+    }
+}
+
+/* Анимация окантовки */
+// grid-wrapper
+/* beam--1 анимация света при наведениыи из центра */
+@keyframes beam--1 {
+    0% {
+        box-shadow: 0 0 50px 0px $color-beam--1;
+    }
+
+    100% {
+        box-shadow: 0 0 200px 250px $color-beam--1;
+    }
+}
+
+/* beam--2  анимация света при наведении из контура */
+@keyframes beam--2 {
+    0% {
+        box-shadow: 0 0 50px 0px $color-beam--2;
+    }
+
+    100% {
+        box-shadow: 0 0 200px 250px $color-beam--2;
+    }
+}
+
+// grid-wrapper для не активных col, одно время у анимации  blur и beam
+@keyframes blur {
+    from {
+        filter: blur(0);
+    }
+
+    to {
+        filter: blur(3px);
+    }
+}
+
+// button
+@keyframes border-bot {
+    from {
+        border-bottom: 0px solid white;
+    }
+
+    to {
+        opacity: 1;
+        border-bottom: 1px solid white;
+        width: calc(50%);
+        height: 1px;
+    }
+}
+
+@keyframes border-mid-w {
+    from {}
+
+    to {
+        width: calc(50% - 1px);
+    }
+}
+
+@keyframes border-mid-h {
+    from {}
+
+    to {
+        height: calc(100%);
+    }
+}
+
+/* btn-600 */
+@keyframes rotatecw {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes rotateccw {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* btn-600 hover */
+@keyframes zalivka {
+    from {
+        background: rgba($color-white, .02);
+    }
+
+    to {
+        background: rgba($color-white, .06);
+    }
+}

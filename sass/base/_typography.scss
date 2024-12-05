@@ -1,0 +1,47 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-gray;
+}
+
+.header-title {
+    color: $color-white;
+    text-transform: uppercase;
+
+    @include respond(340) {
+        overflow: hidden;
+    }
+
+    &--main {
+        display: block;
+        letter-spacing: $size-header-ls;
+        padding-left: $size-header-ls;
+        font-size: $size-header-text;
+        font-weight: 400;
+
+        @include respond(600) {
+            letter-spacing: calc(#{$size-header-ls} * 0.8);
+            padding-left: calc(#{$size-header-ls} * 0.8);
+        }
+    }
+
+    &--sub {
+        display: block;
+        white-space: nowrap;
+        letter-spacing: calc(#{$size-header-ls} * 0.6);
+        padding-left: calc(#{$size-header-ls} * 0.6);
+        font-size: calc(#{$size-header-text} / 3);
+        font-weight: 700;
+    }
+}
+
+/* Анимация */
+.header-title {
+    &--main {
+        animation: MoveRight 5s ease-out, clean 5s ease-out;
+    }
+    &--sub {
+        animation: MoveLeft 5s ease-out, clean 5s ease-out;
+    }
+}

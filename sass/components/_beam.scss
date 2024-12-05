@@ -1,0 +1,21 @@
+.beam {
+    @include absCenter;
+    background-color: transparent;
+    border-radius: 50%;
+    /* Нужно border-radius: 50%; луч света расходился по кругу. */
+    /* width и height не заданы, чтобы элемента не было видно. */
+}
+
+/* Помести невидимую точку в центр каждой col, для этого задал col в grid position-relative */
+
+.col-1-of-3:hover .beam {
+    animation: beam--1 .6s ease-in forwards;
+
+    @include respond(min-1800) {
+        animation: beam--2 .6s ease-in forwards;
+        width: $beam-radius;
+        height: $beam-radius;
+    }
+}
+
+/* Анимация до 1800px работает из центра, после 1800 из контура */

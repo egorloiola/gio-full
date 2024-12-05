@@ -1,0 +1,60 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-gray;
+}
+
+.header-title {
+    color: $color-white;
+    text-transform: uppercase;
+
+    @include respond(340) {
+        overflow: hidden;
+    }
+
+    &--main {
+        display: block;
+        letter-spacing: 3rem;
+        padding-left: 3rem;
+        font-size: 6rem;
+        font-weight: 400;
+
+        @include respond(900) {
+            letter-spacing: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        @include respond(600) {
+            font-size: 5.8rem;
+            letter-spacing: 1rem;
+            padding-left: 1rem;
+        }
+    }
+
+    &--sub {
+        display: block;
+        white-space: nowrap;
+        letter-spacing: 1.75rem;
+        padding-left: 1.75rem;
+        font-size: 2rem;
+        font-weight: 700;
+
+        @include respond(600) {
+            letter-spacing: 1rem;
+            padding-left: 1rem; // компенсирует letter-spacing , чтобы сохранить позицию текста в центре
+        }
+    }
+}
+
+/* Анимация */
+.header-title {
+
+    &--main {
+        animation: MoveRight 5s ease-out, clean 5s ease-out;
+    }
+
+    &--sub {
+        animation: MoveLeft 5s ease-out, clean 5s ease-out;
+    }
+}

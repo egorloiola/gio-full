@@ -1,0 +1,27 @@
+{
+    "name": "genshin-node-20.11.0-32",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "server": "npx live-server --browser=Firefox",
+        "watch:sass": "node-sass sass/main.scss css/style.css -w",
+        "start": "npm-run-all --parallel server watch:sass",
+        "compile": "node-sass sass/main.scss css/style.compile.css",
+        "prefix": "postcss --use autoprefixer -b 'last 10 versions' css/style.compile.css -o css/style.prefix.css",
+        "compress": "node-sass css/cssbuild/style.prefix.css css/style.compress.css --output-style compressed",
+        "build": "npm-run-all compile prefix compress",
+        "clean": "rimraf node_modules",
+        "cleann": "rimraf package-lock.json"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "autoprefixer": "^10.4.16",
+        "concat": "^1.0.3",
+        "node-sass": "^9.0.0",
+        "npm-check-updates": "^16.14.6",
+        "npm-run-all": "^4.1.5",
+        "postcss-cli": "^10.1.0"
+    }
+}

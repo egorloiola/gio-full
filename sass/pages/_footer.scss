@@ -1,0 +1,41 @@
+.footer {
+    position: relative;
+    background-image: linear-gradient(to top, $color-cyan-dark, $color-card-active);
+    height: calc((100vh * #{$size-section}) / #{$size-footer-clip}); // Менял размер коэфицентом переменной, углы остаются пропорционально прежними.
+    overflow: hidden;
+    clip-path: polygon(20% 0%, 80% 0%, 100% calc(20 * #{$size-footer-clip} * 1%), 100% 100%, 0% 100%, 0% calc(20 * #{$size-footer-clip} * 1%)); // при изменения размера секции, углы остаются прежними.
+    // clip-path: polygon(20% 0%, 80% 0%, 100% calc(20 * #{$size-footer-clip} * 1%), 80% calc(40 * #{$size-footer-clip} * 1%), 20% calc(40 * #{$size-footer-clip} * 1%), 0% calc(20 * #{$size-footer-clip} * 1%));  // еще один вариант углов.
+    margin-top: calc((-20vh * #{$size-section}) + 1 * #{$size-gap-section});
+
+    @include respond(900) {
+        margin-top: calc((-10vh * #{$size-section}) + 2/3 * #{$size-gap-section});
+        clip-path: polygon(100% 100%, 0% 100%, 0% calc(10 * #{$size-footer-clip} * 1%), 30% 0%, 70% 0%, 100% calc(10 * #{$size-footer-clip} * 1%));
+    }
+
+    @include respond(600) {
+        margin-top: calc((-10vh * #{$size-section}) + 1/5 * #{$size-gap-section});
+        clip-path: polygon(0% calc(10 * #{$size-footer-clip} * 1%), 35% 0%, 65% 0%, 100% calc(10 * #{$size-footer-clip} * 1%), 100% 100%, 0% 100%);
+    }
+
+    @include respond(340) {
+        clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 100% calc(10 * #{$size-footer-clip} * 1%));
+    }
+}
+
+/* footer backgraund  */
+
+.footer {
+    &-background {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% + 45vh);
+        height: calc(100% + 45vh);
+        background-position: right bottom 10vh;
+        background-image:url(../img/pages/footer.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(1.2);
+    }
+}

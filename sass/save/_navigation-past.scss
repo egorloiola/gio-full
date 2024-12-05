@@ -1,0 +1,61 @@
+.section-navigation {
+    position: relative;
+    margin-top: calc((-20vh *  #{$size-section}) + 1.5vh);
+    /*  Формула для корректного учета clip-path и paddinga body  */
+    height: calc(100vh *  #{$size-section});
+    clip-path: polygon(100% 0%, 100% 100%, 80% 80%, 20% 80%, 0% 100%, 0% 0%, 20% 20%, 80% 20%);
+    background-color: black;
+    overflow: hidden;
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% + 25vh);
+        height: calc(100% + 25vh);
+        background-position: right bottom 25vh;
+        background-position: right bottom 25vh;
+        background-image: url(../img/pages/navigation.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(1.2);
+
+        @include respond(1200) {
+            width: calc(100% + 35vh);
+            height: calc(100% + 35vh);
+            background-position: right bottom 35vh;
+            /* Адаптация исходя из картинки */
+        }
+
+        @include respond(900) {
+            background-position: right bottom 27.3vh;
+            /* Адаптация исходя из картинки */
+        }
+
+        @include respond(600) {
+            background-position: right 3.5% bottom 27.3vh;
+            /* Адаптация исходя из картинки */
+        }
+
+        @include respond(340) {
+            background-position: left bottom 27.3vh;
+            /* Адаптация исходя из картинки, убрал персонажа. */
+        }
+    }
+
+    @include respond(900) {
+        margin-top: calc((-20vh *  #{$size-section}) + 1vh);
+        /*  Формула для корректного учета clip-path и paddinga body  */
+        clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 30% 20%, 70% 20%, 100% 0%);
+    }
+
+    @include respond(600) {
+        margin-top: calc((-20vh *  #{$size-section}) + 0.5vh);
+        /*  Формула для корректного учета clip-path */
+        clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 35% 20%, 65% 20%, 100% 0%);
+    }
+
+    @include respond(340) {
+        clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 50% 20%, 100% 0%);
+    }
+}

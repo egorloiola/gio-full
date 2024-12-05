@@ -1,0 +1,14 @@
+.kubarik--footer {
+    // @extend %kubarik-debug;
+    @extend %kubarik;
+    @extend %kubarik-blur;
+
+    p {
+        @extend %p-kubarik;
+    }
+
+    a {
+        @extend %a-kubarik;
+    }
+
+}

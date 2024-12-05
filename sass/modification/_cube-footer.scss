@@ -1,0 +1,29 @@
+.cube--footer {
+    @include relCenter;
+
+    & {
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+        filter: drop-shadow(0px 0px 15px rgba($color-blue-dark, 0.7)); // еще думаю, мб первое значение оставить.
+    }
+}
+
+// cube perspective
+.cube-perspective--footer {
+
+    @include respond(900) {
+        perspective: 450px;
+    }
+
+}
+
+// cube typography 
+.cube-typography--footer {
+
+    @include respond(900) {
+        font-size: calc(var(--cube-side) * 1);
+    }
+    
+}
