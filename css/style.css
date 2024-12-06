@@ -245,7 +245,7 @@ body {
     width: calc(100% + 25vh);
     height: calc(100% + 25vh);
     background-position: right bottom 25vh;
-    background-image: url(../../img/pages/navigation.jpg);
+    background-image: url(../img/pages/navigation.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     filter: brightness(1.2); }
@@ -282,7 +282,7 @@ body {
 .header {
   height: calc(100vh *  0.965);
   clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-  background-image: linear-gradient(to right top, rgba(255, 224, 102, 0.3), rgba(51, 154, 240, 0.3)), url(../../img/pages/sample/header-1800.webp);
+  background-image: linear-gradient(to right top, rgba(255, 224, 102, 0.3), rgba(51, 154, 240, 0.3)), url(../img/pages/sample/header-1800.webp);
   background-position: 30% 0%;
   background-size: cover;
   overflow: hidden; }
@@ -299,7 +299,7 @@ body {
         top: calc(30% - 2rem); } }
   @media screen and (min-resolution: 192dpi) and (min-width: 600px), screen and (min-width: 2000px) {
     .header {
-      background-image: linear-gradient(to right top, rgba(177, 151, 252, 0.3), rgba(132, 94, 247, 0.3)), url(../../img/pages/sample/header-3600.webp); } }
+      background-image: linear-gradient(to right top, rgba(177, 151, 252, 0.3), rgba(132, 94, 247, 0.3)), url(../img/pages/sample/header-3600.webp); } }
   @media only screen and (max-width: 900px) {
     .header {
       background-position: 23.5% 0%;
@@ -340,7 +340,7 @@ body {
   width: calc(100% + 45vh);
   height: calc(100% + 45vh);
   background-position: right bottom 10vh;
-  background-image: url(../../img/pages/footer.jpg);
+  background-image: url(../img/pages/footer.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   filter: brightness(1.2); }
@@ -675,17 +675,17 @@ body {
       left: 50%;
       transform: translate(-50%, -50%); }
     .card__logo--1 {
-      background: url(../../img/svg/youtube.svg) no-repeat 50%/140%;
-      mask: url(../../img/svg/youtube.svg) no-repeat 50%/140%;
+      background: url(../img/svg/youtube.svg) no-repeat 50%/140%;
+      mask: url(../img/svg/youtube.svg) no-repeat 50%/140%;
       /* 140% заданы, чтобы занять полный размер __logo, убрав пустое лишние место в самой svg */ }
     .card__logo--2 {
-      background: url(../../img/svg/fandom.svg) no-repeat 50%/100%;
-      mask: url(../../img/svg/fandom.svg) no-repeat 50%/100%;
+      background: url(../img/svg/fandom.svg) no-repeat 50%/100%;
+      mask: url(../img/svg/fandom.svg) no-repeat 50%/100%;
       top: 45%;
       /* Поднял из-за текста снизу. include дает top:50%. Уменьшел размер svg из-за текста. */ }
     .card__logo--3 {
-      background: url(../../img/svg/discord.svg) no-repeat 50%/140%;
-      mask: url(../../img/svg/discord.svg) no-repeat 50%/140%;
+      background: url(../img/svg/discord.svg) no-repeat 50%/140%;
+      mask: url(../img/svg/discord.svg) no-repeat 50%/140%;
       /* 140% заданы, чтобы занять полный размер __logo, убрав пустое лишние место в самой svg */ }
   .card__text {
     /*  Особенности scss, чтобы правило на топ переписалось */
@@ -874,23 +874,25 @@ body {
         left: 50%;
         transform: translate(-50%, -50%); } }
 
-.kubarik--footer {
+.kubarik--footer a {
+  pointer-events: auto; }
+
+.kubarik--footer p {
   pointer-events: none; }
-  .kubarik--footer a {
-    pointer-events: auto; }
-  .kubarik--footer p {
-    pointer-events: none; }
-  .kubarik--footer a {
-    animation: none;
-    /* Изначально анимация отключена */
-    transition: filter 0.6s ease-in;
-    /* Плавный переход для фильтра */ }
-  .kubarik--footer a:hover {
-    filter: none;
-    /* Элемент <a> под курсором остается четким благодаря filter: none;. */ }
-  .kubarik--footer a.blur {
-    filter: blur(3px);
-    /* Класс .blur добавляет эффект размытия ко всем элементам <a>, кроме того, на который наведен курсор. */ }
+
+.kubarik--footer a {
+  animation: none;
+  /* Изначально анимация отключена */
+  transition: filter 0.6s ease-in;
+  /* Плавный переход для фильтра */ }
+
+.kubarik--footer a:hover {
+  filter: none;
+  /* Элемент <a> под курсором остается четким благодаря filter: none;. */ }
+
+.kubarik--footer a.blur {
+  filter: blur(3px);
+  /* Класс .blur добавляет эффект размытия ко всем элементам <a>, кроме того, на который наведен курсор. */ }
 
 .kubarik--footer p {
   text-align: center;

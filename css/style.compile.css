@@ -874,23 +874,25 @@ body {
         left: 50%;
         transform: translate(-50%, -50%); } }
 
-.kubarik--footer {
+.kubarik--footer a {
+  pointer-events: auto; }
+
+.kubarik--footer p {
   pointer-events: none; }
-  .kubarik--footer a {
-    pointer-events: auto; }
-  .kubarik--footer p {
-    pointer-events: none; }
-  .kubarik--footer a {
-    animation: none;
-    /* Изначально анимация отключена */
-    transition: filter 0.6s ease-in;
-    /* Плавный переход для фильтра */ }
-  .kubarik--footer a:hover {
-    filter: none;
-    /* Элемент <a> под курсором остается четким благодаря filter: none;. */ }
-  .kubarik--footer a.blur {
-    filter: blur(3px);
-    /* Класс .blur добавляет эффект размытия ко всем элементам <a>, кроме того, на который наведен курсор. */ }
+
+.kubarik--footer a {
+  animation: none;
+  /* Изначально анимация отключена */
+  transition: filter 0.6s ease-in;
+  /* Плавный переход для фильтра */ }
+
+.kubarik--footer a:hover {
+  filter: none;
+  /* Элемент <a> под курсором остается четким благодаря filter: none;. */ }
+
+.kubarik--footer a.blur {
+  filter: blur(3px);
+  /* Класс .blur добавляет эффект размытия ко всем элементам <a>, кроме того, на который наведен курсор. */ }
 
 .kubarik--footer p {
   text-align: center;
