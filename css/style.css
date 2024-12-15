@@ -235,7 +235,6 @@ body {
   margin-top: calc((-20vh * 0.965) + 1 * var(--size-gap-section));
   height: calc(100vh * 0.965);
   clip-path: polygon(100% 0%, 100% 100%, 80% 80%, 20% 80%, 0% 100%, 0% 0%, 20% 20%, 80% 20%);
-  background-color: black;
   overflow: hidden; }
   .section-navigation__background {
     pointer-events: none;
@@ -876,9 +875,6 @@ body {
 
 .kubarik--footer a {
   pointer-events: auto; }
-
-.kubarik--footer p {
-  pointer-events: none; }
 
 .kubarik--footer a {
   animation: none;
