@@ -3,7 +3,6 @@
     margin-top: calc((-20vh * #{$size-section}) + 1 * #{$size-gap-section});
     height: calc(100vh * #{$size-section});
     clip-path: polygon(100% 0%, 100% 100%, 80% 80%, 20% 80%, 0% 100%, 0% 0%, 20% 20%, 80% 20%);
-    background-color: black;
     overflow: hidden;
 
     &__background {
